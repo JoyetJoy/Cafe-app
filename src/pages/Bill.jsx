@@ -34,7 +34,7 @@ const Bill = () => {
   if (!orderId || cartItems.length === 0) return null;
 
   return (
-    <motion.div {...pageVariants} className="min-h-screen bg-[#FAFAFA] flex flex-col lg:flex-row items-start justify-center py-8 lg:py-12 px-4 lg:px-8 gap-8 max-w-5xl mx-auto">
+    <motion.div {...pageVariants} className="min-h-screen bg-[#FAFAFA] flex flex-col items-start justify-center py-8 lg:py-12 px-4 lg:px-8 gap-8 max-w-5xl mx-auto">
       {/* Invoice Card */}
       <motion.div
         initial={{ y: 40, opacity: 0, rotateX: 5 }}
@@ -173,7 +173,7 @@ const Bill = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 }}
-        className="w-full max-w-md lg:max-w-xs gap-4 flex flex-col mx-auto lg:mx-0 lg:sticky lg:top-24"
+        className="w-full  gap-4 flex flex-col mx-auto lg:mx-0 lg:sticky lg:top-24"
       >
         <motion.button
           whileHover={{ scale: 1.02, y: -2 }}

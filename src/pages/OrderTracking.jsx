@@ -42,7 +42,7 @@ const OrderTracking = () => {
   return (
     <motion.div {...pageVariants} className="min-h-screen bg-[#FAFAFA] pb-12">
       <div className="p-4 lg:p-8 max-w-5xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+        <div className="flex flex-col gap-6 ">
           
           {/* Left - Status */}
           <div className="flex-1 space-y-6">
@@ -181,7 +181,7 @@ const OrderTracking = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="lg:w-[380px] lg:sticky lg:top-24 lg:self-start space-y-6"
+            className="w-full lg:sticky lg:top-24 lg:self-start space-y-6"
           >
             {/* Items summary */}
             <div className="bg-white p-6 rounded-[28px] border border-gray-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.06)]">
