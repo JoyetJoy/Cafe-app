@@ -12,11 +12,14 @@
 
 @layer base {
   body {
-    background-color: #111111;
-    color: var(--color-dark);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  .cafe-theme {
+    background-color: #111111;
+    color: var(--color-dark);
+    min-height: 100vh;
   }
 }
 
@@ -55,3 +58,7 @@
 .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 .animate-scan-line { animation: scan-line 2s ease-in-out infinite; }
 .animate-gradient-x { animation: gradient-x 3s ease infinite; background-size: 200% 200%; }
+
+@keyframes spinOnce { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.required:after { content: " *"; color: red; }
+.animate-spin-once { animation: spinOnce 1s ease-out; }
