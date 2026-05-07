@@ -58,8 +58,8 @@ const sidemenuItems = [
 const sidebarMenuMap = {
   1: [
     { id: 1, label: "Dashboard", icon: LayoutDashboard, link: "/store/login" },
-    { id: 2, label: "POS", icon: HandPlatter, link: "/store/signup" },
-    { id: 3, label: "Orders", icon: ListTodo, link: "/store/forgot-password" },
+    { id: 2, label: "POS", icon: HandPlatter, link: "/store/pos" },
+    { id: 3, label: "Orders", icon: ListTodo, link: "/store/main/orders" },
     { id: 4, label: "Kitchen (KDS)", icon: Drumstick },
     { id: 5, label: "Reservation", icon: FileClock },
   ],
@@ -70,7 +70,7 @@ const sidebarMenuMap = {
     { id: 4, label: "Coupons", icon: BadgePercent },
   ],
   3: [
-    { id: 1, label: "Tables", icon: ConciergeBell, link: "/store/login" },
+    { id: 1, label: "Tables", icon: ConciergeBell, link: "/store/operations/tables" },
     { id: 2, label: "Customers", icon: UserRound, link: "/store/signup" },
     {
       id: 3,
@@ -123,23 +123,23 @@ export default function DashboardLayout() {
   useEffect(() => {
     if (location.pathname.includes("admin")) {
       setSelectedSidebar1(4);
-    }else if (location.pathname.includes("menu")) {
+    } else if (location.pathname.includes("menu")) {
       setSelectedSidebar1(2);
+    } else if (location.pathname.includes("operations")) {
+      setSelectedSidebar1(3);
+    } else if (location.pathname.includes("main")) {
+      setSelectedSidebar1(1);
     }
   }, [location.pathname]);
 
   const menuItems = sidebarMenuMap[selectedSidebar1] || [];
 
+  // Set the active menu item based on the current URL
   useEffect(() => {
-    setActivePage(null);
-  }, [selectedSidebar1]);
-
-  // useEffect(() => {
-  //   const firstItem = menuItems[0];
-  //   if (firstItem?.link) {
-  //     setActivePage(firstItem.id);
-  //   }
-  // }, [selectedSidebar1]);
+    const items = sidebarMenuMap[selectedSidebar1] || [];
+    const match = items.find((item) => item.link && location.pathname.startsWith(item.link));
+    setActivePage(match ? match.id : null);
+  }, [selectedSidebar1, location.pathname]);
 
   const handleMenuItemClick = (item, options = {}) => {
     if (!item) return;

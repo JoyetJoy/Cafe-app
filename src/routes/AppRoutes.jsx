@@ -18,6 +18,7 @@ import SignIn from "../pages/auth/SignIn";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import Otp from "../pages/auth/Otp";
 import ResetPassword from "../pages/auth/ResetPassword";
+import StorePOS from "@/pages/restaurent/pos/StorePOS";
 
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center min-h-screen">
@@ -46,6 +47,7 @@ export const router = createBrowserRouter([
     ),
     children: restaurentRoutes,
   },
+  { path: "/store/pos", element: <StorePOS /> },
   {
     path: "/store/signup",
     element: <SignUp />,
